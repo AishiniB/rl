@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import copy
 import seaborn as sns
 
+np.random.seed(42)
+
 class KArmedBandit:
     def __init__(self,k=10,epsilon=0.1,verbose=True):
         self.k = k
@@ -179,5 +181,5 @@ class Action:
         return np.random.random() > self.epsilon
         
 if __name__ == "__main__":
-    exp = KArmedBandit()
-    exp.run_experiment()
+    exp = KArmedBandit(k=10,epsilon=0.15)
+    exp.run_experiment(time_steps=2000)
